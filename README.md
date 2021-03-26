@@ -13,7 +13,7 @@ Load-Dump: Go on with load testing of your endpoints with full power
         "waitPeriod": 1,
         "executionMinutes": 5,
     },
-    "http": [
+    "http": {
         "configOverride": {
             "parallelism": 2500,
             "executionMinutes": 15,
@@ -30,6 +30,6 @@ Load-Dump: Go on with load testing of your endpoints with full power
                 }
             },
         }
-    ]
+    }
 }
 ```
