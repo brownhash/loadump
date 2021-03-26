@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"fmt"
 	"encoding/json"
-	"github.com/sharma1612harshit/gomuf/logs"
+	"github.com/sharma1612harshit/loadump/src/logs"
 )
 
 func ReadConfig(configFilePath string) config {
