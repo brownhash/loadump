@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"github.com/sharma1612harshit/loadump/src/logs"
+	"github.com/sharma1612harshit/golog"
 )
 
 func MakeRequest(method, url string, header map[string]string, body interface{}) (string, []byte, error) {
@@ -16,7 +16,7 @@ func MakeRequest(method, url string, header map[string]string, body interface{})
 	request, err := http.NewRequest(method, url, payload)
 
 	if err != nil {
-		logs.Error(err)
+		golog.Error(err)
 	}
 
 	if len(header) > 0 {
