@@ -11,7 +11,13 @@ Load-Dump: Go on with load testing of your endpoints with full power
     "config": {
         "parallelism": 1000,
         "waitPeriod": 1,
-        "executionMinutes": 5
+        "executionMinutes": 5,
+        "storage": {
+            "type": "redis",
+            "address": "127.0.0.1:6379",
+            "password": "",
+            "db": "LD_LOCAL"
+        }
     },
     "http": {
         "configOverride": {
