@@ -4,7 +4,7 @@ type storageConfig struct {
 	Type                    string                      `json:"type"`
 	Address                 string                      `json:"address"`
 	Password                string                      `json:"password"`
-	DB                      string                      `json:"db"`
+	DB                      int                         `json:"db"`
 }
 
 type systemConfig struct {
