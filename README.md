@@ -16,7 +16,7 @@ Load-Dump: Go on with load testing of your endpoints with full power
             "type": "redis",
             "address": "127.0.0.1:6379",
             "password": "",
-            "db": "LD_LOCAL"
+            "db": 0
         }
     },
     "http": {
