@@ -21,7 +21,7 @@ type httpAppConfig struct {
 
 type httpConfig struct {
 	ConfigOverride          systemConfigOverride        `json:"configOverride,omitempty"`
-	Services                map[string]httpAppConfig    `json:"configOverride"`
+	Services                map[string]httpAppConfig    `json:"services"`
 }
 
 type config struct {
