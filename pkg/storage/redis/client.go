@@ -8,7 +8,7 @@ func Client(addr, password string, db int) *redis.Client {
 	client := redis.NewClient(&redis.Options{
         Addr:     addr,
         Password: password,
-        DB:       db,  // use default DB
+        DB:       db,
     })
 
 	return client
