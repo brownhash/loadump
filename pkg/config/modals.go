@@ -22,7 +22,7 @@ type httpConfig struct {
 	Services                map[string]httpAppConfig    `json:"configOverride"`
 }
 
-type config struct {
+type dumpConfig struct {
 	Config                  systemConfig                `json:"config"`
 	HTTP                    httpConfig                  `json:"http"`
 }
