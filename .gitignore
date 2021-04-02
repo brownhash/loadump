@@ -16,3 +16,4 @@
 
 # custom pkg testing file
 runner.go
+runnerconfig.json
