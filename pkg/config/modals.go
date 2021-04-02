@@ -1,9 +1,17 @@
 package config
 
+type storageConfig struct {
+	Type                    string                      `json:"type"`
+	Address                 string                      `json:"address"`
+	Password                string                      `json:"password"`
+	DB                      string                      `json:"db"`
+}
+
 type systemConfig struct {
 	Parallelism             int                         `json:"parallelism"`
 	WaitPeriod              int                         `json:"waitPeriod"`
 	ExecutionMinutes        int                         `json:"executionMinutes"`
+	Storage                 storageConfig               `json:"storage"`
 }
 
 type systemConfigOverride struct {
