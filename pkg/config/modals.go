@@ -1,3 +1,5 @@
+package config
+
 type systemConfig struct {
 	Parallelism             int                         `json:"parallelism"`
 	WaitPeriod              int                         `json:"waitPeriod"`
@@ -22,7 +24,7 @@ type httpConfig struct {
 	Services                map[string]httpAppConfig    `json:"configOverride"`
 }
 
-type dumpConfig struct {
+type config struct {
 	Config                  systemConfig                `json:"config"`
 	HTTP                    httpConfig                  `json:"http"`
 }

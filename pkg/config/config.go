@@ -8,7 +8,7 @@ import (
 	"github.com/sharma1612harshit/golog"
 )
 
-func ReadConfig(configFilePath string) dumpConfig {
+func ReadConfig(configFilePath string) config {
 	jsonFile, err := os.Open(configFilePath)
 	defer jsonFile.Close()
 
@@ -22,7 +22,7 @@ func ReadConfig(configFilePath string) dumpConfig {
 		golog.Error(fmt.Sprintf("Unable to read config file. Error: %v", err))
 	}
 
-	configuration := dumpConfig{}
+	configuration := config{}
 
 	err = json.Unmarshal(byteValue, &configuration)
 
