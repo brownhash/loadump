@@ -9,14 +9,15 @@ import (
 
 func main() {
 	// c := flag.Bool("c", false, "use -c to start dui controller node")
-	logLevel := flag.String("logLevel", "INFO", "use -logLevel to indicate logging level. DEBUG | INFO | WARNING | ERROR")
+	logLevel := flag.String("log-level", "INFO", "use -log-level to indicate logging level. DEBUG | INFO | WARNING | ERROR")
+	configFile := flag.String("config-file", "config.json", "use -config-file to mention loadump json config file location.")
 
 	flag.Parse()
 
 	golog.SetLogFormat()
 	golog.SetLogLevel(*logLevel)
 
-	loadConfig := config.ReadConfig("runnerconfig.json")
+	loadConfig := config.ReadConfig(*configFile)
 
 	system.CheckLimit(loadConfig.Config.Parallelism)
 }
