@@ -9,17 +9,17 @@ import (
 )
 
 func main() {
+	runner := flag.Bool("runner", false, "use -runner to initiate runner node")
+
 	logLevel := flag.String("log-level", "INFO", "use -log-level to indicate logging level. DEBUG | INFO | WARNING | ERROR")
-	configFile := flag.String("config-file", "config.json", "use -config-file to mention loadump json config file location.")
+
+	standAlone := flag.Bool("stand-alone", false, "use -stand-alone to run loadump on stand-alone machine")
+	configFile := flag.String("config-file", "", "use -config-file to mention loadump json config file location.")
 
 	flag.Parse()
 
 	golog.SetLogFormat()
 	golog.SetLogLevel(*logLevel)
-
-	loadConfig := config.ReadConfig(*configFile)
-
-	system.CheckLimit(loadConfig.Config.Parallelism)
 
 	uid, err := system.GetUid()
 
@@ -28,4 +28,15 @@ func main() {
 	}
 
 	golog.Success(fmt.Sprintf("Successfully generated system Uid: %v", uid))
+
+	if (*runner) {
+		golog.Success("Initiated Loadump runner node")
+	} else {
+		golog.Success("Initiated Loadump master node")
+
+		if *standAlone {
+			loadConfig := config.ReadConfig(*configFile)
+			system.CheckLimit(loadConfig.Config.Parallelism)
+		}
+	}
 }
