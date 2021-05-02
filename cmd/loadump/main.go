@@ -29,7 +29,7 @@ func main() {
 
 	golog.Success(fmt.Sprintf("Successfully generated system Uid: %v", uid))
 
-	if (*runner) {
+	if *runner {
 		golog.Success("Initiated Loadump runner node")
 	} else {
 		golog.Success("Initiated Loadump master node")
