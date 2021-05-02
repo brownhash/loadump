@@ -10,16 +10,16 @@ import (
 func NodeHandler(runner, standAlone bool, masterAddr, configFile string) {
 
 	if runner {
-		golog.Success("Initiated Loadump runner node")
+		golog.Warn("Initiating runner node")
 		golog.Warn(fmt.Sprintf("Will coordinate with master node at: %v", masterAddr))
 	} else {
-		golog.Success("Initiated Loadump master node")
+		golog.Warn("Initiating master node")
 
 		loadConfig := config.ReadConfig(configFile)
 		system.CheckLimit(loadConfig.Config.Parallelism)
 
 		if standAlone {
-			golog.Warn("Standalone master node ...")
+			golog.Warn("Initiating standalone master node")
 		}
 	}
 }
