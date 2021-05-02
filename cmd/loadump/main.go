@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"flag"
 	"github.com/sharma1612harshit/golog"
 	"github.com/sharma1612harshit/loadump/pkg/system"
@@ -19,4 +20,12 @@ func main() {
 	loadConfig := config.ReadConfig(*configFile)
 
 	system.CheckLimit(loadConfig.Config.Parallelism)
+
+	uid, err := system.GetUid()
+
+	if err != nil {
+		golog.Error(fmt.Sprintf("Unable to generate system Uid. %v", err))
+	}
+
+	golog.Success(fmt.Sprintf("Successfully generated system Uid: %v", uid))
 }
