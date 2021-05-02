@@ -5,16 +5,17 @@ import (
 	"flag"
 	"github.com/sharma1612harshit/golog"
 	"github.com/sharma1612harshit/loadump/pkg/system"
-	"github.com/sharma1612harshit/loadump/pkg/config"
+	"github.com/sharma1612harshit/loadump/api"
 )
 
 func main() {
 	runner := flag.Bool("runner", false, "use -runner to initiate runner node")
+	masterAddr := flag.String("master-addr", "", "use -master-addr to specify master node address")
 
 	logLevel := flag.String("log-level", "INFO", "use -log-level to indicate logging level. DEBUG | INFO | WARNING | ERROR")
 
 	standAlone := flag.Bool("stand-alone", false, "use -stand-alone to run loadump on stand-alone machine")
-	configFile := flag.String("config-file", "", "use -config-file to mention loadump json config file location.")
+	configFile := flag.String("config-file", "config.json", "use -config-file to mention loadump json config file location.")
 
 	flag.Parse()
 
@@ -29,14 +30,5 @@ func main() {
 
 	golog.Success(fmt.Sprintf("Successfully generated system Uid: %v", uid))
 
-	if *runner {
-		golog.Success("Initiated Loadump runner node")
-	} else {
-		golog.Success("Initiated Loadump master node")
-
-		if *standAlone {
-			loadConfig := config.ReadConfig(*configFile)
-			system.CheckLimit(loadConfig.Config.Parallelism)
-		}
-	}
+	api.NodeHandler(*runner, *standAlone, *masterAddr, *configFile)
 }
