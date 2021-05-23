@@ -11,7 +11,8 @@ func GetUid() (uint64, error) {
     interfaces, err := net.Interfaces()
 
     if err != nil {
-		golog.Debug(err)
+		golog.Debug("Error while initiating Network interface")
+        
         return uint64(0), err
     }
 

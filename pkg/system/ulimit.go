@@ -12,7 +12,7 @@ func GetRlimit() (syscall.Rlimit, error) {
 	err := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
 
 	if err != nil {
-		golog.Debug(err)
+		golog.Debug("Error while fetching system rLimit")
 	}
 
 	return rLimit, err
@@ -22,7 +22,7 @@ func CheckLimit(parallelism int) {
 	limits, err := GetRlimit()
 
 	if err != nil {
-		golog.Error(err)
+		golog.Error("Error while fetching system rLimit")
 	}
 
 	if parallelism > int(limits.Cur) {
