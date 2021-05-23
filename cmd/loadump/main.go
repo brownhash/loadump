@@ -14,14 +14,20 @@ func main() {
 	masterAddr := flag.String("master-addr", "", "use -master-addr to specify master node address")
 
 	logLevel := flag.String("log-level", "INFO", "use -log-level to indicate logging level. DEBUG | INFO | WARNING | ERROR")
+	logfile := flag.String("log-file", "", "use -log-file to state logfile name, will log to STDOUT if left empty")
 
 	standAlone := flag.Bool("stand-alone", false, "use -stand-alone to run loadump on stand-alone machine")
 	configFile := flag.String("config-file", "config.json", "use -config-file to mention loadump json config file location.")
 
 	flag.Parse()
 
-	golog.SetLogFormat()
 	golog.SetLogLevel(*logLevel)
+	golog.SetLogFormat()
+
+	if len(*logfile) > 0 {
+		logfile := golog.LogToFile(*logfile)
+		defer logfile.Close()
+	}
 
 	uid, err := system.GetUid()
 
