@@ -39,3 +39,27 @@ func ReadConfig(configFilePath string) (Config, error) {
 
 	return configuration, err
 }
+
+func MergeConfig(config systemConfig, configOverride systemConfigOverride) systemConfigOverride {
+	mergedConfig := systemConfigOverride{}
+
+	if configOverride.Parallelism > 0 {
+		mergedConfig.Parallelism = configOverride.Parallelism
+	} else {
+		mergedConfig.Parallelism = config.Parallelism
+	}
+
+	if configOverride.WaitPeriod > 0 {
+		mergedConfig.WaitPeriod = configOverride.WaitPeriod
+	} else {
+		mergedConfig.WaitPeriod = config.WaitPeriod
+	}
+
+	if configOverride.ExecutionMinutes > 0 {
+		mergedConfig.ExecutionMinutes = configOverride.ExecutionMinutes
+	} else {
+		mergedConfig.ExecutionMinutes = config.ExecutionMinutes
+	}
+
+	return mergedConfig
+}
