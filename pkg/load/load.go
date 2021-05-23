@@ -2,7 +2,6 @@ package load
 
 import (
 	"fmt"
-	"runtime"
 	"time"
 
 	"github.com/brownhash/golog"
@@ -38,7 +37,7 @@ func RunLoad(configuration config.Config) {
 		// record the number errors and requests made
 		for true {
 			start := time.Now()
-			err5xx, err4xx, miscErr, statusMap := runHttpLoad(httpConfig.Parallelism, serviceConfig.HTTPAddr, serviceConfig.Method, serviceConfig.Header, serviceConfig.Body)
+			err5xx, err4xx, miscErr, statusMap := runHttpLoad(httpConfig.Parallelism, serviceConfig.Addr, serviceConfig.Method, serviceConfig.Headers, serviceConfig.Body)
 			elapsed := time.Since(start)
 
 			TotalTime += elapsed.Seconds()
@@ -51,13 +50,13 @@ func RunLoad(configuration config.Config) {
 				}
 			}
 
-			if TotalTime < httpConfig.ExecutionMinutes {
+			if TotalTime < float64(60 * httpConfig.ExecutionMinutes) {
 				TotalReq        += httpConfig.Parallelism
 				Total5xx        += err5xx
 				Total4xx        += err4xx
 				TotalMiscErr    += miscErr
 	
-				TotalTime       += time.Duration(httpConfig.WaitPeriod)
+				TotalTime       += time.Duration(httpConfig.WaitPeriod).Seconds()
 				time.Sleep(time.Duration(httpConfig.WaitPeriod))
 			} else {
 				break
