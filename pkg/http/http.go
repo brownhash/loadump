@@ -17,7 +17,8 @@ func MakeRequest(method, url string, header map[string]string, body interface{})
 	request, err := http.NewRequest(method, url, payload)
 
 	if err != nil {
-		golog.Error(err)
+		golog.Debug("Unable to initiate HTTP Request client")
+		return "", nil, err
 	}
 
 	if len(header) > 0 {
@@ -29,12 +30,14 @@ func MakeRequest(method, url string, header map[string]string, body interface{})
 	response, err := client.Do(request)
 
 	if err != nil {
+		golog.Debug("Unable to make HTTP Request")
 		return "", nil, err
 	}
 
 	respBody, err := ioutil.ReadAll(response.Body)
 
 	if err != nil {
+		golog.Debug("Unable to read HTTP response")
 		return "", nil, err
 	}
 
