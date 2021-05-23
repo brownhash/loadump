@@ -5,7 +5,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"github.com/sharma1612harshit/golog"
+
+	"github.com/brownhash/golog"
 )
 
 func MakeRequest(method, url string, header map[string]string, body interface{}) (string, []byte, error) {

@@ -1,14 +1,15 @@
 package system
 
 import (
-    "github.com/sharma1612harshit/golog"
-    "syscall"
 	"fmt"
+	"syscall"
+
+	"github.com/brownhash/golog"
 )
 
 func GetRlimit() (syscall.Rlimit, error) {
 	var rLimit syscall.Rlimit
-    err := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
+	err := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
 
 	if err != nil {
 		golog.Debug(err)

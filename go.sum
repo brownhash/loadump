@@ -1,3 +1,5 @@
+github.com/brownhash/golog v1.2.2 h1:jYXElZQXdjqTPeKMZlKHaEYNr3k/efnUnWap90ORVa0=
+github.com/brownhash/golog v1.2.2/go.mod h1:kkrEFSy8rB6kfiqv28cgvcixAmKwIuHCdiOrMha9gBQ=
 github.com/cespare/xxhash/v2 v2.1.1 h1:6MnRN8NT7+YBpUIWxHtefFZOKTAPgGjpQSxqLNn0+qY=
 github.com/cespare/xxhash/v2 v2.1.1/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -28,14 +30,6 @@ github.com/onsi/gomega v1.7.1/go.mod h1:XdKZgCCFLUoM/7CFJVPcG8C1xQ1AJ0vpAezJrB7J
 github.com/onsi/gomega v1.10.1/go.mod h1:iN09h71vgCQne3DLsj+A5owkum+a2tYe+TOCB1ybHNo=
 github.com/onsi/gomega v1.10.5/go.mod h1:gza4q3jKQJijlu05nKWRCW/GavJumGt8aNRxWg7mt48=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/sharma1612harshit/golog v0.0.0-20210329143557-d3eddaafbe41 h1:qjf+DLbIIhEPRVrbxwTkX4iDiGbm+Rm82s9QajnHMyQ=
-github.com/sharma1612harshit/golog v0.0.0-20210329143557-d3eddaafbe41/go.mod h1:n4BIadIHr7kqhSGpyGzJ4uf3AYd7xPASaQgBWTC0BGQ=
-github.com/sharma1612harshit/golog v0.0.0-20210329183248-2c0bbb404e91 h1:gUnmlCVor8s3tlX+Is7SnxTAC6ZWc2FCHIAuB76ibgA=
-github.com/sharma1612harshit/golog v0.0.0-20210329183248-2c0bbb404e91/go.mod h1:n4BIadIHr7kqhSGpyGzJ4uf3AYd7xPASaQgBWTC0BGQ=
-github.com/sharma1612harshit/golog v0.0.0-20210402151054-88b2cd19f3f4 h1:TLvbwrsPO4STOCOXLfmob1y5LTGdNx1MTMPzqyw6/54=
-github.com/sharma1612harshit/golog v0.0.0-20210402151054-88b2cd19f3f4/go.mod h1:n4BIadIHr7kqhSGpyGzJ4uf3AYd7xPASaQgBWTC0BGQ=
-github.com/sharma1612harshit/golog v0.0.0-20210402151949-9d7970a66615 h1:g+EG3AXWSJgmzJsL4zpo4y2M1QhlgMVEWuuZfaSrU/s=
-github.com/sharma1612harshit/golog v0.0.0-20210402151949-9d7970a66615/go.mod h1:n4BIadIHr7kqhSGpyGzJ4uf3AYd7xPASaQgBWTC0BGQ=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=

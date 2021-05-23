@@ -1,11 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"flag"
-	"github.com/sharma1612harshit/golog"
-	"github.com/sharma1612harshit/loadump/pkg/system"
-	"github.com/sharma1612harshit/loadump/api"
+	"fmt"
+
+	"github.com/brownhash/golog"
+	"github.com/brownhash/loadump/api"
+	"github.com/brownhash/loadump/pkg/system"
 )
 
 func main() {

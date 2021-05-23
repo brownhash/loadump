@@ -1,8 +1,8 @@
-module github.com/sharma1612harshit/loadump
+module github.com/brownhash/loadump
 
 go 1.15
 
 require (
+	github.com/brownhash/golog v1.2.2 // indirect
 	github.com/go-redis/redis/v8 v8.8.0
-	github.com/sharma1612harshit/golog v0.0.0-20210402151949-9d7970a66615
 )

@@ -1,11 +1,12 @@
 package config
 
 import (
-	"os"
-	"io/ioutil"
-	"fmt"
 	"encoding/json"
-	"github.com/sharma1612harshit/golog"
+	"fmt"
+	"io/ioutil"
+	"os"
+
+	"github.com/brownhash/golog"
 )
 
 func ReadConfig(configFilePath string) config {

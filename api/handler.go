@@ -2,9 +2,10 @@ package api
 
 import (
 	"fmt"
-	"github.com/sharma1612harshit/golog"
-	"github.com/sharma1612harshit/loadump/pkg/config"
-	"github.com/sharma1612harshit/loadump/pkg/system"
+
+	"github.com/brownhash/golog"
+	"github.com/brownhash/loadump/pkg/config"
+	"github.com/brownhash/loadump/pkg/system"
 )
 
 func NodeHandler(runner, standAlone bool, masterAddr, configFile string) {

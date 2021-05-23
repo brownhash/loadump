@@ -1,9 +1,10 @@
 package system
 
 import (
-	"net"
 	"bytes"
-	"github.com/sharma1612harshit/golog"
+	"net"
+
+	"github.com/brownhash/golog"
 )
 
 func GetUid() (uint64, error) {
