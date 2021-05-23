@@ -32,7 +32,7 @@ type httpConfig struct {
 	Services                map[string]httpAppConfig    `json:"services"`
 }
 
-type config struct {
+type Config struct {
 	Config                  systemConfig                `json:"config"`
 	HTTP                    httpConfig                  `json:"http"`
 }

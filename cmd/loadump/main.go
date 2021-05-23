@@ -37,5 +37,5 @@ func main() {
 
 	golog.Success(fmt.Sprintf("Successfully generated system Uid: %v", uid))
 
-	api.NodeHandler(*runner, *standAlone, *masterAddr, *configFile)
+	api.NodeHandler(*runner, *standAlone, *masterAddr, *configFile, uid)
 }

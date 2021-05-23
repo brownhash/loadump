@@ -5,22 +5,26 @@ import (
 
 	"github.com/brownhash/golog"
 	"github.com/brownhash/loadump/pkg/config"
-	"github.com/brownhash/loadump/pkg/system"
+	"github.com/brownhash/loadump/pkg/load"
 )
 
-func NodeHandler(runner, standAlone bool, masterAddr, configFile string) {
-
+func NodeHandler(runner, standAlone bool, masterAddr, configFile string, uid uint64) {
 	if runner {
-		golog.Warn("Initiating runner node")
-		golog.Warn(fmt.Sprintf("Will coordinate with master node at: %v", masterAddr))
+		golog.Info("Inititing runner node")
 	} else {
-		golog.Warn("Initiating master node")
+		config, err := config.ReadConfig(configFile)
 
-		loadConfig := config.ReadConfig(configFile)
-		system.CheckLimit(loadConfig.Config.Parallelism)
+		if err != nil {
+			golog.Error(err)
+		}
+
+		golog.Debug(fmt.Sprintf("Configuration: %v", config))
 
 		if standAlone {
-			golog.Warn("Initiating standalone master node")
+			golog.Info("Inititing standalone master node")
+			load.RunLoad(config)
+		} else {
+			golog.Info("Inititing master node")
 		}
 	}
 }

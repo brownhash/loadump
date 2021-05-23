@@ -18,7 +18,7 @@ func GetRlimit() (syscall.Rlimit, error) {
 	return rLimit, err
 }
 
-func CheckLimit(parallelism int) {
+func CheckLimit(parallelism int) bool {
 	limits, err := GetRlimit()
 
 	if err != nil {
@@ -26,6 +26,9 @@ func CheckLimit(parallelism int) {
 	}
 
 	if parallelism > int(limits.Cur) {
-		golog.Error(fmt.Sprintf("System Ulimit less than required. Current: %v, Max: %v", limits.Cur, limits.Max))
+		golog.Debug(fmt.Sprintf("System Ulimit less than required. Current: %v, Max: %v", limits.Cur, limits.Max))
+		return false
 	}
+
+	return true
 }
